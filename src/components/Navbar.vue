@@ -12,7 +12,7 @@
             <li v-if="!isLoggedIn"><router-link to='/login'>Login</router-link></li>
             <li v-if="isLoggedIn"><router-link to='/register'>New Account</router-link></li>
             <li v-if="isLoggedIn"><button @click="logout" class="btn black">Logout</button></li>   
-            <li><a href="https://github.com/msrks" class="white-text"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://github.com/msrks/boardgame-manager" class="white-text"><i class="fab fa-github"></i></a></li>
           </ul>
         </div>
       </div>
