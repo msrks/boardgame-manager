@@ -1,14 +1,14 @@
 <template>
   <div id="view-boardgame">
     <div class="row">
-      <div class="col s9">
+      <div class="col s12 m9">
         <ul class="collection with-header">
           <li class="collection-header"><h4>{{name}}</h4></li>
           <li class="collection-item">Published Year: {{pub_year}}</li>
           <li class="collection-item">URL: <a :href="url">Board Game Geek</a></li>
         </ul>
       </div>
-      <div class="col s3 center">
+      <div class="col s12 m3 center">
         <img :src="url_image" height=150>
       </div>
     </div>
