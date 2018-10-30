@@ -1,6 +1,8 @@
-# boardgame-manager
+# Boardgame Manager
 
-> Boardgame Manager
+<img src="sample_dashboard.png" width=500>
+<img src="sample_view.png" width=500>
+<img src="sample_create.png" width=500>
 
 ## Build Setup
 
@@ -19,3 +21,7 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## How to deploy to Github Pages
+
+https://qiita.com/msrks/items/67dbfba84bc635d7337c
