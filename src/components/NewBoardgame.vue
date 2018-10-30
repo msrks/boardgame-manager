@@ -16,6 +16,10 @@
             <input type="text" v-model="url" required>
             <label>BGG URL</label>
           </div>
+          <div class="input-field col s12">
+            <input type="text" v-model="url_image">
+            <label>IMAGE URL</label>
+          </div>          
           <button type="submit" class="btn">Submit</button>
           <router-link to="/" class="btn grey">Cancel</router-link>
         </div>
@@ -33,7 +37,8 @@ export default {
     return {
       name: null,
       pub_year: null,
-      url: null
+      url: null,
+      url_image: null
     }
   },
   methods: {
@@ -41,7 +46,8 @@ export default {
       db.collection('games').add({
         name: this.name,
         pub_year: this.pub_year,
-        url: this.url
+        url: this.url,
+        url_image: this.url_image
       })
       .then(docRef => this.$router.push('/'))
       .catch(err => console.log(err))

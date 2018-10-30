@@ -9,11 +9,11 @@
         </ul>
       </div>
       <div class="col s3 center">
-        <img :src="image" height=150>
+        <img :src="url_image" height=150>
       </div>
     </div>
     <router-link to="/" class="btn grey">Back</router-link>
-    <button @click="deleteBoardgame" class="btn red">Delete</button>
+    <button v-if="isLoggedIn" @click="deleteBoardgame" class="btn red">Delete</button>
     <div class="fixed-action-btn">
       <router-link v-bind:to="{name: 'edit-boardgame', params: {boardgame_name: name}}" class="btn-floating btn-large red">
         <i class="fa fa-pencil-alt"></i>
@@ -24,14 +24,24 @@
 
 <script>
 import db from './firebaseInit'
+import firebase from 'firebase'
+import axios from 'axios'
+
 export default {
   name: 'view-boardgame',
   data() {
     return {
+      isLoggedIn: false,
       name: null,
       pub_year: null,
       url: null,
+      url_image: null,
       image: null
+    }
+  },
+  created() {
+    if (firebase.auth().currentUser) {
+      this.isLoggedIn = true
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -42,13 +52,13 @@ export default {
           vm.name = doc.data().name
           vm.pub_year = doc.data().pub_year
           vm.url = doc.data().url
+          vm.url_image = doc.data().url_image
         })
       })
     })
   },
   watch: {
     '$route': 'fetchData',
-    name: 'fetchImage'
   },
   methods: {
     fetchData() {
@@ -58,13 +68,9 @@ export default {
           this.name = doc.data().name
           this.pub_year = doc.data().pub_year
           this.url = doc.data().url
+          this.url_image = doc.data().url_image
         })
       })
-    },
-    fetchImage() {
-      fetch("https://bgg-json.azurewebsites.net/thing/31260")
-      .then(res => res.json())
-      .then(json => this.image=json.image)
     },
     deleteBoardgame(){
       if (confirm("Are you sure?")) {

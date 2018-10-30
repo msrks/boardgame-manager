@@ -13,6 +13,9 @@
           <div class="input-field col s12">
             <input type="text" v-model="url" required>
           </div>
+          <div class="input-field col s12">
+            <input type="text" v-model="url_image" required>
+          </div>
           <button type="submit" class="btn">Submit</button>
           <router-link to="/" class="btn grey">Cancel</router-link>
         </div>
@@ -30,7 +33,7 @@ export default {
       name: null,
       pub_year: null,
       url: null,
-      image: null
+      url_image: null,
     }
   },
   beforeRouteEnter (to, from, next) {
@@ -41,6 +44,7 @@ export default {
           vm.name = doc.data().name
           vm.pub_year = doc.data().pub_year
           vm.url = doc.data().url
+          vm.url_image = doc.data().url_image
         })
       })
     })
@@ -56,6 +60,7 @@ export default {
           this.name = doc.data().name
           this.pub_year = doc.data().pub_year
           this.url = doc.data().url
+          this.url_image = doc.data().url_image
         })
       })
     },
@@ -66,7 +71,8 @@ export default {
           doc.ref.update({
             name: this.name,
             pub_year: this.pub_year,
-            url: this.url
+            url: this.url,
+            url_image: this.url_image
           })
           .then(() => {
             this.$router.push({name: 'view-boardgame',

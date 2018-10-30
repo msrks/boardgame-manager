@@ -1,7 +1,7 @@
 <template>
   <div id="dashboard">
     <ul class="collection with-header">
-      <li class="collection-header"><h4>Boardgames</h4></li>
+      <li class="collection-header"><h4>Your Collections</h4></li>
       <li v-for="boardgame in boardgames" v-bind:key="boardgame.id" class="collection-item">
         <div class="chip">{{boardgame.pub_year}}</div>
         {{boardgame.name}}
@@ -34,7 +34,8 @@ export default {
             'id': doc.id,
             'name': doc.data().name,
             'pub_year': doc.data().pub_year,
-            'url': doc.data().url
+            'url': doc.data().url,
+            'url_image': doc.data().url_image,
           }
           this.boardgames.push(data)
         })
@@ -43,3 +44,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.nomargin{
+  padding: 0px;
+}
+</style>
+
