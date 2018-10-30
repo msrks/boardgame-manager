@@ -20,12 +20,12 @@ export default new Router({
       component: NewBoardgame
     },
     {
-      path: '/edit/:boardgame_id',
+      path: '/edit/:boardgame_name',
       name: 'edit-boardgame',
       component: EditBoardgame
     },
     {
-      path: '/:boardgame_id',
+      path: '/:boardgame_name',
       name: 'view-boardgame',
       component: ViewBoardgame
     },
