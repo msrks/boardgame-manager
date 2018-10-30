@@ -25,4 +25,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## How to deploy to Github Pages
 
-https://qiita.com/msrks/items/67dbfba84bc635d7337c
+https://qiita.com/msrks/items/67dbfba84bc635d7337c
