@@ -1,8 +1,9 @@
 # Boardgame Manager
 
-<img src="sample_dashboard.png" width=500>
-<img src="sample_view.png" width=500>
-<img src="sample_create.png" width=500>
+<span>
+  <img src="sample_dashboard.png" width=400>
+  <img src="sample_view.png" width=400>
+</span>
 
 ## Build Setup
 
