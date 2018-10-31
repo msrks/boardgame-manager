@@ -27,7 +27,7 @@ export default {
     }
   },
   created() {
-    db.collection('games').get().then(
+    db.collection('games').orderBy('name').get().then(
       querySnapshot => {
         querySnapshot.forEach(doc => {
           const data = {
