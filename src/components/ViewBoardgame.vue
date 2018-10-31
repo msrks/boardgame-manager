@@ -9,7 +9,7 @@
         </ul>
       </div>
       <div class="col s12 m3 center">
-        <img :src="url_image" height=150>
+        <img :src="url_image" class="view-image">
       </div>
     </div>
     <router-link to="/" class="btn grey">Back</router-link>
@@ -87,8 +87,8 @@ export default {
 }
 </script>
 
-<style>
-  img {
-    margin: 20px;
-  }
+<style scoped>
+.view-image {
+  margin: 15px;
+}
 </style>

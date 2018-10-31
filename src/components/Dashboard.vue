@@ -18,7 +18,7 @@
           <div v-if="!isListView" v-for="boardgame in boardgames" v-bind:key="boardgame.id" class="card hoverable">
             <router-link v-bind:to="{name: 'view-boardgame', params: {boardgame_name: boardgame.name}}">
               <div class="card-image">
-                <img :src="boardgame.url_image">
+                <img :src="boardgame.url_image" class="dashboard-img">
               </div>
               <div class="card-content">
                 <p class="black-text">{{boardgame.name}}<span class="chip l-margin">{{boardgame.pub_year}}</span></p>
@@ -72,10 +72,14 @@ export default {
 .l-margin {
   margin-left: 3px;
 }
-img {
-  width: 100%;
-  height: 250px;
+.card-image {
+  height: 210px;
+}
+.dashboard-img {
+  height: 220px;
   object-fit: cover;
+  object-position: 50% 0%;
+  margin: 0px !important; 
 }
 .card-grid{
   display: grid;
