@@ -1,12 +1,31 @@
 <template>
   <div id="dashboard">
     <ul class="collection with-header">
-      <li class="collection-header"><h4>Your Collections</h4></li>
-      <li v-for="boardgame in boardgames" v-bind:key="boardgame.id" class="collection-item">
+      <li class="collection-header">
+        <h4>
+          Collections
+          <a class="btn-floating right" @click="isListView=false"><i class="material-icons right small blue darker-1">view_module</i></a>
+          <a class="btn-floating right" @click="isListView=true"><i class="material-icons right small blue darker-1">view_headline</i></a>
+        </h4>
+
+      </li>
+      <li v-if="isListView" v-for="boardgame in boardgames" v-bind:key="boardgame.id" class="collection-item">
         <div class="chip">{{boardgame.pub_year}}</div>
         {{boardgame.name}}
         <router-link class="secondary-content" v-bind:to="{name: 'view-boardgame', params: {boardgame_name: boardgame.name}}"><i class="fa fa-eye"></i></router-link>
       </li>
+        <div class="card-grid">
+          <div v-if="!isListView" v-for="boardgame in boardgames" v-bind:key="boardgame.id" class="card hoverable">
+            <router-link v-bind:to="{name: 'view-boardgame', params: {boardgame_name: boardgame.name}}">
+              <div class="card-image">
+                <img :src="boardgame.url_image">
+              </div>
+              <div class="card-content">
+                <p class="black-text">{{boardgame.name}}<span class="chip l-margin">{{boardgame.pub_year}}</span></p>
+              </div>
+            </router-link>
+          </div>
+        </div>
     </ul>
     <div class="fixed-action-btn">
       <router-link to="/new" class="btn-floating btn-large red">
@@ -23,7 +42,8 @@ export default {
   name: 'dashboard',
   data() {
     return {
-      boardgames: []
+      boardgames: [],
+      isListView: false
     }
   },
   created() {
@@ -46,8 +66,24 @@ export default {
 </script>
 
 <style scoped>
-.nomargin{
-  padding: 0px;
+.collection-header a{
+  margin-right: 7px;
+}
+.l-margin {
+  margin-left: 3px;
+}
+img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.card-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-top: 10px;
 }
 </style>
+
+
 
